@@ -1,4 +1,4 @@
-package models;
+package uy.edu.utec.apifarmayopin.models;
 
 public enum Status {
     PENDIENTE,

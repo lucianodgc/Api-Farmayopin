@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +12,20 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Purchase {
+public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
+
+    @OneToOne
     private User user;
-    private LocalDateTime orderDate;
-    private Double total;
-    @Enumerated(EnumType.STRING)
-    private Status status;
-    private String address;
-    @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
-    private List<PurchaseItem> items = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> items = new ArrayList<>();
+
+    public Double getTotal() {
+        return items.stream()
+                .mapToDouble(item -> item.getProduct().getPrice() * item.getQuantity())
+                .sum();
+    }
 }

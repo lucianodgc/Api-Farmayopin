@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class OrderItem {
+public class PurchaseItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
     @JsonIgnore
-    private Order order;
+    private Purchase purchase;
     @ManyToOne
     private Product product;
     private Integer quantity;

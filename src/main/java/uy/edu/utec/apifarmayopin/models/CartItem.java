@@ -1,5 +1,6 @@
-package models;
+package uy.edu.utec.apifarmayopin.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,8 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
-    private User user;
+    @JsonIgnore
+    private Cart cart;
     @ManyToOne
     private Product product;
     private Integer quantity;

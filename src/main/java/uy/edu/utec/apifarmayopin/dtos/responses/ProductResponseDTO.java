@@ -1,23 +1,22 @@
-package uy.edu.utec.apifarmayopin.models;
+package uy.edu.utec.apifarmayopin.dtos.responses;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@JsonPropertyOrder({ "id", "name", "description", "price", "stock", "photo", "categories" })
+public class ProductResponseDTO {
     private Integer id;
     private String name;
     private String description;
     private Double price;
     private Integer stock;
     private String photo;
-    @ManyToOne
-    private Category category;
+    private Integer categoryId;
 }

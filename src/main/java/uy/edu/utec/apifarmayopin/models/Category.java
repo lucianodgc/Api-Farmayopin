@@ -1,4 +1,4 @@
-package models;
+package uy.edu.utec.apifarmayopin.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
