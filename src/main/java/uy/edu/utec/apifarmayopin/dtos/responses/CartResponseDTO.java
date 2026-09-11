@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uy.edu.utec.apifarmayopin.models.Role;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({ "id", "email", "name", "phone", "role" })
-public class UserResponseDTO {
+@JsonPropertyOrder({ "id", "items", "total"})
+public class CartResponseDTO {
     private Integer id;
-    private String email;
-    private String name;
-    private String phone;
-    private Role role;
+    private List<CartItemResponseDTO> items = new ArrayList<>();
+    private Double total;
 }

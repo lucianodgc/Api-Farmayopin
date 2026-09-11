@@ -81,18 +81,7 @@ public class ProductService {
 
         return mapToProductResponseDTO(productRepository.save(existing));
     }
-/*
-    public List<PurchaseHistoryDTO> getProductPurchaseHistory(Integer productId) {
-        return purchaseItemRepository.findByProductId(productId).stream()
-                .map(item -> {
-                    PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
-                    dto.setDate(item.getPurchase().getPurchaseDate());
-                    dto.setQuantity(item.getQuantity());
-                    dto.setClientEmail(item.getPurchase().getUser().getEmail());
-                    return dto;
-                }).toList();
-    }
-*/
+
     private ProductResponseDTO mapToProductResponseDTO(Product product) {
         ProductResponseDTO productDTO = new ProductResponseDTO();
         productDTO.setId(product.getId());

@@ -18,11 +18,14 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private User user;
+    @Column(nullable = false)
     private LocalDateTime orderDate;
     private Double total;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Column(nullable = false)
     private String address;
     @OneToMany(mappedBy = "purchase", cascade = CascadeType.ALL)
     private List<PurchaseItem> items = new ArrayList<>();

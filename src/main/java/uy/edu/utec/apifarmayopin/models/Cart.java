@@ -18,6 +18,7 @@ public class Cart {
     private Integer id;
 
     @OneToOne
+    @JoinColumn(nullable = false, unique = true)
     private User user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)

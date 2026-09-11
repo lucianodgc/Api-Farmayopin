@@ -15,10 +15,14 @@ public class PurchaseItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
+    @JoinColumn(nullable = false)
     @JsonIgnore
     private Purchase purchase;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Product product;
+    @Column(nullable = false)
     private Integer quantity;
+    @Column(nullable = false)
     private Double price;
 }

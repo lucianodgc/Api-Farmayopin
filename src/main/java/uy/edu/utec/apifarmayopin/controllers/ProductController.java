@@ -2,6 +2,7 @@ package uy.edu.utec.apifarmayopin.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uy.edu.utec.apifarmayopin.dtos.requests.ProductRequestDTO;
@@ -30,7 +31,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductResponseDTO> postProduct(@Valid @RequestBody ProductRequestDTO productRequestDTO) {
-        return ResponseEntity.ok(productService.createProduct(productRequestDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productRequestDTO));
     }
 
     @PutMapping("/{id}")

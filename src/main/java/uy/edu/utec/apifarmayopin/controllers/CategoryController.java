@@ -1,6 +1,7 @@
 package uy.edu.utec.apifarmayopin.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uy.edu.utec.apifarmayopin.dtos.requests.CategoryRequestDTO;
@@ -23,6 +24,6 @@ public class CategoryController {
 
     @PostMapping
     public ResponseEntity<CategoryResponseDTO> postCategory(@RequestBody CategoryRequestDTO categoryRequestDTO) {
-        return ResponseEntity.ok(categoryService.createCategory(categoryRequestDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.createCategory(categoryRequestDTO));
     }
 }
