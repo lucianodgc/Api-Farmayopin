@@ -20,8 +20,9 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponseDTO>> getAllProducts(
-            @RequestParam(required = false, defaultValue = "id") String sortBy) {
-        return ResponseEntity.ok(productService.getAllProducts(sortBy));
+            @RequestParam(required = false, defaultValue = "id") String sortBy,
+            @RequestParam(required = false) String name) {
+        return ResponseEntity.ok(productService.getAllProducts(sortBy, name));
     }
 
     @GetMapping("/{id}")

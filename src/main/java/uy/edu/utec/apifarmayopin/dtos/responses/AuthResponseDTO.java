@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({ "token", "tokenType" })
+@JsonPropertyOrder({ "token", "tokenType", "role" })
 public class AuthResponseDTO {
     private String token;
     private String tokenType;
+    private String role;
 }

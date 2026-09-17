@@ -48,7 +48,7 @@ public class UserService {
         }
 
         String token = jwtUtils.generateToken(user.getEmail(), user.getRole().name());
-        return new AuthResponseDTO(token, "Bearer");
+        return new AuthResponseDTO(token, "Bearer", user.getRole().name());
     }
 
     private UserResponseDTO mapToUserResponseDTO(User user) {

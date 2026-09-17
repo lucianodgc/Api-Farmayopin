@@ -37,8 +37,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/products/**", "/categories/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/products/**", "/categories/**").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/products/**", "/categories/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/purchases/product/**").hasAuthority("ROLE_ADMIN")
 
-                        .requestMatchers("/cart/**", "/purchases").hasAuthority("ROLE_CLIENT")
+                        .requestMatchers("/cart/**", "/purchases", "/purchases/checkout").hasAuthority("ROLE_CLIENT")
 
                         .anyRequest().authenticated()
                 )

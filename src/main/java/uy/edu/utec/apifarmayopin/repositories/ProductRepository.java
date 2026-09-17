@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     boolean existsByName(String name);
+    List<Product> findByNameContainingIgnoreCase(String name);
 }

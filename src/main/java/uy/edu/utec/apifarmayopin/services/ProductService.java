@@ -22,7 +22,15 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public List<ProductResponseDTO> getAllProducts(String sortBy) {
+    public List<ProductResponseDTO> getAllProducts(String sortBy, String name) {
+
+        if (name != null) {
+            return productRepository.findByNameContainingIgnoreCase(name)
+                    .stream()
+                    .map(this::mapToProductResponseDTO)
+                    .toList();
+        }
+
         Sort sort;
 
         if ("category".equalsIgnoreCase(sortBy)) {
