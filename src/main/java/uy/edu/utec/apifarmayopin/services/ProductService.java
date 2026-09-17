@@ -80,12 +80,17 @@ public class ProductService {
         Product existing = productRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Producto con id: " + id + " no encontrado"));
 
+        Category category = categoryRepository.findById(dto.getCategoryId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "No existe una categoría con el id: " + dto.getCategoryId()
+                ));
+
         existing.setName(dto.getName());
         existing.setPrice(dto.getPrice());
         existing.setDescription(dto.getDescription());
         existing.setPhoto(dto.getPhoto());
         existing.setStock(dto.getStock());
-        existing.setCategory(existing.getCategory());
+        existing.setCategory(category);
 
         return mapToProductResponseDTO(productRepository.save(existing));
     }
@@ -99,6 +104,7 @@ public class ProductService {
         productDTO.setPhoto(product.getPhoto());
         productDTO.setStock(product.getStock());
         productDTO.setCategoryId(product.getCategory().getId());
+        productDTO.setCategoryName(product.getCategory().getName());
         return productDTO;
     }
 }

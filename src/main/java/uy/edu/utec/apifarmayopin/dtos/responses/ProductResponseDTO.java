@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder({ "id", "categoryId", "name", "description", "price", "stock", "photo" })
+@JsonPropertyOrder({ "id", "categoryId", "categoryName", "name", "description", "price", "stock", "photo" })
 public class ProductResponseDTO {
     private Integer id;
     private String name;
@@ -17,4 +17,5 @@ public class ProductResponseDTO {
     private Integer stock;
     private String photo;
     private Integer categoryId;
+    private String categoryName;
 }

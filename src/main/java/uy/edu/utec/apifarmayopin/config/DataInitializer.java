@@ -91,6 +91,38 @@ public class DataInitializer implements CommandLineRunner {
         p4.setCategory(catBotiquin);
         p4 = productRepository.save(p4);
 
+        Product p5 = new Product();
+        p5.setName("Loratadina 10mg");
+        p5.setDescription("Antihistamínico para el alivio de rinitis alérgica y alergias en la piel.");
+        p5.setPrice(210.0);
+        p5.setStock(25);
+        p5.setCategory(catMedicamentos);
+        p5 = productRepository.save(p5);
+
+        Product p6 = new Product();
+        p6.setName("Protector Solar FPS 50");
+        p6.setDescription("Protección alta contra rayos UVA y UVB, toque seco y resistente al agua.");
+        p6.setPrice(850.0);
+        p6.setStock(15);
+        p6.setCategory(catCuidadoPersonal);
+        p6 = productRepository.save(p6);
+
+        Product p7 = new Product();
+        p7.setName("Termómetro Digital");
+        p7.setDescription("Medición rápida y precisa con pantalla LCD y alarma de fiebre.");
+        p7.setPrice(450.0);
+        p7.setStock(20);
+        p7.setCategory(catBotiquin);
+        p7 = productRepository.save(p7);
+
+        Product p8 = new Product();
+        p8.setName("Bandas Adhesivas x20");
+        p8.setDescription("Curitas flexibles e impermeables para la protección de heridas pequeñas.");
+        p8.setPrice(110.0);
+        p8.setStock(60);
+        p8.setCategory(catBotiquin);
+        p8 = productRepository.save(p8);
+
         System.out.println(">>> Categorías y Productos cargados.");
 
         // 5. Inicializar Carrito del Cliente con un Producto
